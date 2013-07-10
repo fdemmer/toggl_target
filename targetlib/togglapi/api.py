@@ -81,9 +81,10 @@ class TogglReportsAPI(TogglAPI):
     def __init__(self, api_token, timezone, **kwargs):
         """
         :param api_url: override the default api url
+        :param user_agent: override the default user agent
         """
         super(TogglReportsAPI, self).__init__(api_token, timezone)
-        self.user_agent = USER_AGENT
+        self.user_agent = kwargs.get('user_agent', USER_AGENT)
         self.api_url = kwargs.get('api_url', REPORTS_API_URL)
         # make sure the url ends with a / to append a report_type savely later
         if not self.api_url.endswith('/'):
