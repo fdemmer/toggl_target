@@ -19,7 +19,7 @@ Python 2.7
   switch you can install using the source where it is cloned)
 * create a configuration file: `~/.togglcli/settings.py`
 * get your Toggl API token from your Toggl account's settings and set
-  `API_TOKEN = "<the token>" in `settings.py`
+  `API_TOKEN = "<the token>"` in `settings.py`
 * you may override additional default settings in `settings.py` (find the
   defaults in `togglcli/settings.py` in the source package)
 
