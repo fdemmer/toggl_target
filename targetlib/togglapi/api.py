@@ -7,13 +7,15 @@ import requests
 from urllib import urlencode
 from requests.auth import HTTPBasicAuth
 
+TOGGL_API_URL = "https://www.toggl.com/api/v8/"
+
 
 class TogglAPI(object):
-    """A wrapper for Toggl Api"""
+    """A wrapper for Toggl API v8"""
 
     def __init__(self, api_token, timezone):
         self.api_token = api_token
-        self.timezone  = timezone
+        self.timezone = timezone
 
     def _make_url(self, section='time_entries', params={}):
         """Constructs and returns an api url to call with the section of the API to be called
@@ -28,10 +30,9 @@ class TogglAPI(object):
         >>> t._make_url(section='time_entries', params = {'start_date' : '2010-02-05T15:42:46+02:00', 'end_date' : '2010-02-12T15:42:46+02:00'})
         'https://www.toggl.com/api/v8/time_entries?start_date=2010-02-05T15%3A42%3A46%2B02%3A00%2B02%3A00&end_date=2010-02-12T15%3A42%3A46%2B02%3A00%2B02%3A00'
         """
-
-        url = 'https://www.toggl.com/api/v8/{}'.format(section)
-        if len(params) > 0:
-            url = url + '?{}'.format(urlencode(params))
+        url = TOGGL_API_URL + section
+        if params:
+            url = url + '?' + urlencode(params)
         return url
 
     def _query(self, url, method):
