@@ -7,9 +7,9 @@ import sys
 import config
 import requests
 
-from togglapi import api
-from toggltarget import target
-from workingtime import workingtime
+from targetlib.togglapi import api
+from targetlib.toggltarget import target
+from targetlib.workingtime import workingtime
 
 
 def internet_on():
