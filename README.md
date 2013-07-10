@@ -1,46 +1,28 @@
 Toggl Target
 ============
 
-At work, we track our working hours on Toggl (www.toggl.com), so I created this small project to calculate how many hours I should work to achieve my monthly goals.
+At work, we track our working hours on Toggl (www.toggl.com), so @mos3abof and
+@mtayseer created this small project to calculate how many hours they should
+work to achieve their monthly goals.
 
-You will need to install `requests` and `dateutil` python libraries to be able to use this.
-
-
-Installation on linux
+Installation on Linux
 ---------------------
 
-If you are using linux, you most probably have Python already installed on your machine.
-If not, use your distro's package management system to install Python 2.7
+If you are using linux, you most probably have Python already installed on
+your machine. If not, use your distro's package management system to install
+Python 2.7
 
-* Downloading the source code from [here](https://github.com/mos3abof/toggl_target/archive/master.zip)
-* navaigate to the directory and run the following command to install the required packages :
-
-```
-$ pip install -r requirements.txt
-```
-
-* Copy `config.py-example` to `config.py`
-* In `config.py` add Your Toggl  API token which can be found in your Toggl account's settings.
-* Change other values in `config.py` to match your case
+# using a virtualenv is recommended. eg. `mkvirtualenv togglcli`
+# clone the source from this repository and `cd` to the source directory
+# run `pip install .` to install in your current environment (using the `-e` switch you can install using the source where it is cloned)
+# create a configuration file: `~/.togglcli/settings.py`
+# get your Toggl API token from your Toggl account's settings and set `API_TOKEN = "<the token>" in `settings.py`
+# you may override additional default settings in `settings.py` (find the defaults in `togglcli/settings.py` in the source package)
 
 Installation on Windows
 -----------------------
 
-* If you don't have Python installed, then you must install Python 2.7 from [here](http://python.org/ftp/python/2.7.5/python-2.7.5.msi)
-* Download the file
-* Press the start button, select run, and run cmd.exe
-* In the command shell, run these commands
-
-```
-python distribute_setup.py
-easy_install pip
-pip install python-dateutil requests
-```
-
-* Download toggl_target from [here](https://github.com/mos3abof/toggl_target/archive/master.zip)
-* Expand the downloaded zip file, copy `config.py-example` & paste it as `config.py` beside `run.py`
-* Change your API key in `config.py` Your Toggl  API token can be found in your Toggl account's settings.
-* Run `python run.py`
+Install Python and pip, then follow the Linux instructions. Put the `.togglcli` directory in your user's home directory.
 
 Usage
 -----
@@ -48,7 +30,7 @@ Usage
 To use the script run the following command :
 
 ```
-$ python run.py
+$ target.py
 ```
 
 The output will be something like :
@@ -80,40 +62,22 @@ So far you have achieved:
 70.59% [=================================================--------------|------]
 ```
 
-Contributores
+Authors
 -------------
 
 * [@mos3abof](http://www.mos3abof.com)
 * [@mtayseer](http://www.mtayseer.net)
-
-
-Support or Contact
-------------------
-If you have trouble using this code, your can contact toggl@mos3abof.com and I’ll help you sort it out if I have enough time :).
-
+* Florian Demmer
 
 
 Bug Reports & Feature Requests
 ------------------------------
 
-To report bugs, issues or feature requests please use the Issues Queue on this Github repository to make it easier for me to maintain. Please don't send those to my email.
-
+Please submit any issues or feature requests to the github tracker.
+Pull requests welcome!
 
 
 License
 -------
 
-```
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-```
+see LICENSE.txt
