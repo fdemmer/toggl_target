@@ -34,7 +34,44 @@ Install Python and pip, then follow the Linux instructions. Put the
 Usage
 -----
 
-To use the script run the following command :
+The `report.py` script uses the Toggle reports API to read (surprise!) report
+data. It supports all three report types (weekly, details and summary). The
+output is somewhat formatted printed. See the script itself to customize the
+output.
+
+Run it with the `--help` switch for instructions.
+
+```
+$ report.py --help
+usage: report.py [-h] {weekly,details,summary} ...
+
+positional arguments:
+  {weekly,details,summary}
+    weekly
+    details
+    summary
+
+optional arguments:
+  -h, --help            show this help message and exit
+```
+
+All commands require the workspace id as argument. Get it by finding the
+"workspace_id" parameter in the toggl.com url, when looking at the workspace
+you want.
+
+```
+$ report.py weekly --help
+usage: report.py weekly [-h] workspace-id
+
+positional arguments:
+  workspace-id  workspace id
+
+optional arguments:
+  -h, --help    show this help message and exit
+```
+
+
+To use the target script run the following command :
 
 ```
 $ target.py
