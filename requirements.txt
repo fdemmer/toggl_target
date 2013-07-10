@@ -1,2 +1,7 @@
 python-dateutil
 requests
+
+# argument parsing
+argh
+argparse
+argcomplete
