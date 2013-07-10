@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
-import os
-import sys
-
 import argh
-import requests
-import pprint
+
+#import pprint
 from dateutil import parser
 
 from targetlib.togglapi import TogglReportsAPI
 from togglcli import settings
 from togglcli.helpers import ms_to_hr
 
+
 api = TogglReportsAPI(settings.API_TOKEN, settings.TIMEZONE)
+
 
 @argh.arg('workspace-id', help='workspace id')
 def weekly(workspace_id):
