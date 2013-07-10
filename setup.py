@@ -13,4 +13,7 @@ setup(name='togglcli',
     author_email='',
     url='',
     install_requires=requirements(),
+    scripts = [
+        'bin/target.py'
+    ]
 )
