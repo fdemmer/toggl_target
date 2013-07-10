@@ -14,7 +14,7 @@ setup(name='togglcli',
     url='',
     install_requires=requirements(),
     scripts = [
-        'bin/target.py',
-        'bin/report.py',
+        'scripts/target.py',
+        'scripts/report.py',
     ]
 )
