@@ -4,12 +4,14 @@
 
 import os
 import sys
-import config
+
 import requests
 
 from targetlib.togglapi import api
 from targetlib.toggltarget import target
 from targetlib.workingtime import workingtime
+
+from togglcli import settings
 
 
 def internet_on():
@@ -84,8 +86,12 @@ def hilite(string, status, bold):
 
 
 def main():
-    w = workingtime.WorkingTime(config.WORKING_HOURS_PER_DAY, config.BUSINESS_DAYS, config.WEEK_DAYS)
-    a = api.TogglAPI(config.API_TOKEN, config.TIMEZONE)
+    if settings.API_TOKEN is None:
+        print "Set API_TOKEN in ~/.togglcli/settings.py. You can find it under \"My Profile\" in your Toggl account."
+        sys.exit()
+
+    w = workingtime.WorkingTime(settings.WORKING_HOURS_PER_DAY, settings.BUSINESS_DAYS, settings.WEEK_DAYS)
+    a = api.TogglAPI(settings.API_TOKEN, settings.TIMEZONE)
     t = target.Target()
 
     print "Hi"
@@ -104,7 +110,7 @@ def main():
         sys.exit()
 
     t.required_hours = w.required_hours_this_month
-    t.tolerance      = config.TOLERANCE_PERCENTAGE
+    t.tolerance      = settings.TOLERANCE_PERCENTAGE
 
     normal_min_hours, crunch_min_hours = t.get_minimum_daily_hours(w.business_days_left_count, w.days_left_count)
 
@@ -112,10 +118,10 @@ def main():
     print hilite("{0:.2f} hours".format(t.achieved_hours), True, True)
     print "\nBusiness days left till deadline : {}".format(w.business_days_left_count)
     print "Total days left till deadline : {}".format(w.days_left_count)
-    print "\nThis month targets [Required (minimum)] : {} ({})".format(w.required_hours_this_month, w.required_hours_this_month - (w.required_hours_this_month * config.TOLERANCE_PERCENTAGE))
+    print "\nThis month targets [Required (minimum)] : {} ({})".format(w.required_hours_this_month, w.required_hours_this_month - (w.required_hours_this_month * settings.TOLERANCE_PERCENTAGE))
     print "\nTo achieve the minimum:\n\tyou should log {0:.2f} hours every business day".format(normal_min_hours)
     print "\tor log {0:.2f} hours every day".format(crunch_min_hours)
-    print "\tleft is : {0:.2f}".format((w.required_hours_this_month - (w.required_hours_this_month * config.TOLERANCE_PERCENTAGE)) - t.achieved_hours)
+    print "\tleft is : {0:.2f}".format((w.required_hours_this_month - (w.required_hours_this_month * settings.TOLERANCE_PERCENTAGE)) - t.achieved_hours)
 
     normal_required_hours, crunch_required_hours = t.get_required_daily_hours(w.business_days_left_count, w.days_left_count)
 
@@ -123,7 +129,7 @@ def main():
     print "\tor log {0:.2f} hours every day".format(crunch_required_hours)
     print "\tleft is : {0:.2f}".format(w.required_hours_this_month - t.achieved_hours)
     print "\nHow your progress looks:"
-    bar = percentile_bar(t.achieved_percentage, config.TOLERANCE_PERCENTAGE)
+    bar = percentile_bar(t.achieved_percentage, settings.TOLERANCE_PERCENTAGE)
     print bar
 
 if __name__ == '__main__':
