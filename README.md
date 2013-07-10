@@ -1,9 +1,10 @@
 Toggl Target
 ============
 
-At work, we track our working hours on Toggl (www.toggl.com), so @mos3abof and
+At work, they track their working hours on Toggl (www.toggl.com), so @mos3abof and
 @mtayseer created this small project to calculate how many hours they should
 work to achieve their monthly goals.
+
 
 Installation on Linux
 ---------------------
@@ -12,17 +13,23 @@ If you are using linux, you most probably have Python already installed on
 your machine. If not, use your distro's package management system to install
 Python 2.7
 
-# using a virtualenv is recommended. eg. `mkvirtualenv togglcli`
-# clone the source from this repository and `cd` to the source directory
-# run `pip install .` to install in your current environment (using the `-e` switch you can install using the source where it is cloned)
-# create a configuration file: `~/.togglcli/settings.py`
-# get your Toggl API token from your Toggl account's settings and set `API_TOKEN = "<the token>" in `settings.py`
-# you may override additional default settings in `settings.py` (find the defaults in `togglcli/settings.py` in the source package)
+* using a virtualenv is recommended. eg. `mkvirtualenv togglcli`
+* clone the source from this repository and `cd` to the source directory
+* run `pip install .` to install in your current environment (using the `-e`
+  switch you can install using the source where it is cloned)
+* create a configuration file: `~/.togglcli/settings.py`
+* get your Toggl API token from your Toggl account's settings and set
+  `API_TOKEN = "<the token>" in `settings.py`
+* you may override additional default settings in `settings.py` (find the
+  defaults in `togglcli/settings.py` in the source package)
+
 
 Installation on Windows
 -----------------------
 
-Install Python and pip, then follow the Linux instructions. Put the `.togglcli` directory in your user's home directory.
+Install Python and pip, then follow the Linux instructions. Put the
+`.togglcli` directory in your user's home directory.
+
 
 Usage
 -----
@@ -62,6 +69,7 @@ So far you have achieved:
 70.59% [=================================================--------------|------]
 ```
 
+
 Authors
 -------------
 
@@ -70,8 +78,8 @@ Authors
 * Florian Demmer
 
 
-Bug Reports & Feature Requests
-------------------------------
+Issues
+------
 
 Please submit any issues or feature requests to the github tracker.
 Pull requests welcome!
