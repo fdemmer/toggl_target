@@ -13,6 +13,13 @@ setup(name='togglcli',
     author_email='',
     url='',
     install_requires=requirements(),
+    packages = [
+        'targetlib',
+        'targetlib.togglapi',
+        'targetlib.toggltarget',
+        'targetlib.workingtime',
+        'togglcli',
+    ],
     scripts = [
         'scripts/target.py',
         'scripts/report.py',
