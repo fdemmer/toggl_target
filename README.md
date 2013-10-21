@@ -108,11 +108,12 @@ So far you have achieved:
 
 
 Authors
--------------
+-------
 
 * [@mos3abof](http://www.mos3abof.com)
 * [@mtayseer](http://www.mtayseer.net)
-* Florian Demmer
+* Florian Demmer (@fdemmer)
+* Ian Young (@iay)
 
 
 Issues
