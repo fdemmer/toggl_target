@@ -19,8 +19,8 @@ def weekly(workspace_id):
 
     for d in data['data']:
         print d['title']['client'], d['title']['project']
-        print "last 7:", [ms_to_hr(ms) for ms in d['totals'][:-1]]
-        print "total:", ms_to_hr(d['totals'][-1])
+        print u"last 7:", [ms_to_hr(ms) for ms in d['totals'][:-1]]
+        print u"total:", ms_to_hr(d['totals'][-1])
 
 
 @argh.arg('workspace-id', help='workspace id')
@@ -39,7 +39,7 @@ def details(workspace_id):
         if day != this_day:
             day = this_day
             print day
-        print "- {} ({})".format(d['description'], ms_to_hr(d['dur']))
+        print u"- {} ({})".format(d['description'], ms_to_hr(d['dur']))
 
 
 @argh.arg('workspace-id', help='workspace id')
@@ -48,12 +48,12 @@ def summary(workspace_id):
     #pprint.pprint(data)
 
     for d in data['data']:
-        print "{} {} ({})".format(
+        print u"{} {} ({})".format(
             d['title']['client'],
             d['title']['project'],
             ms_to_hr(d['time']))
         for i in d['items']:
-            print "- {} ({})".format(i['title']['time_entry'], ms_to_hr(i['time']))
+            print u"- {} ({})".format(i['title']['time_entry'], ms_to_hr(i['time']))
 
 
 argh_parser = argh.ArghParser()
