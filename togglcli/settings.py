@@ -9,6 +9,9 @@ from dateutil.rrule import SA, SU, MO, TU, WE, TH, FR
 # Toggl API Token
 API_TOKEN = None
 
+# Default workspace ID, where appropriate
+WORKSPACE_ID = None
+
 # Number Precision
 PRECISION = 2
 
