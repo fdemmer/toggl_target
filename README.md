@@ -59,7 +59,7 @@ All commands accept a workspace id as argument. Get it by finding the
 "workspace_id" parameter in the `toggl.com` url, when looking at the workspace
 you want.
 
-If you omit the workspace ID, or use the word "default", `report.py` will use a
+If you omit the workspace ID, `report.py` will use a
 `WORKSPACE_ID` value defined in `settings.py`, or fall back to using the first
 (often the only) workspace in your toggl account. So in many simple cases, you
 can just omit the workspace ID from the command line and the right thing will

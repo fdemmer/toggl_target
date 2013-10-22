@@ -28,12 +28,6 @@ TIMEZONE = '+02:00'
 SHOW_SALARY = False
 SALARY = 0
 
-##
-## If you copy this package into either of the two places mentioned
-## below, as a shortcut to making a local settings file,
-## you need to REMOVE EVERYTHING BELOW THIS LINE to avoid infinite recursion.
-##
-
 ## load settings from etc and home directory
 
 SETTINGS_PATH = ["/etc/togglcli/", os.path.expanduser("~/.togglcli/"), ]

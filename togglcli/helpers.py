@@ -15,15 +15,12 @@ def default_workspace_id(workspace_id=None):
     """Produce a default workspace ID"""
 
     # Return the input if we don't need to default it
-    if workspace_id is not None and workspace_id != 'default':
+    if workspace_id is not None:
         return workspace_id
 
     # Return an explicit default if set in settings.py
-    try:
-        if settings.WORKSPACE_ID is not None:
-            return settings.WORKSPACE_ID
-    except:
-        pass
+    if settings.WORKSPACE_ID is not None:
+        return settings.WORKSPACE_ID
 
     # Return the user's first (often the only) workspace
     api = TogglAPI(settings.API_TOKEN, settings.TIMEZONE)
