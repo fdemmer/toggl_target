@@ -73,6 +73,11 @@ class TogglAPI(object):
 
         return (total_seconds_tracked / 60.0) / 60.0
 
+    def get_workspaces(self):
+        """Get JSON object giving information about all of the user's workspaces."""
+        url = self._make_url(section='workspaces')
+        r = self._query(url=url, method='GET')
+        return r.json()
 
 class TogglReportsAPI(TogglAPI):
     """

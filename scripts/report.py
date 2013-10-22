@@ -7,14 +7,15 @@ from dateutil import parser
 
 from targetlib.togglapi import TogglReportsAPI
 from togglcli import settings
-from togglcli.helpers import ms_to_hr
+from togglcli.helpers import ms_to_hr, default_workspace_id
 
 
 api = TogglReportsAPI(settings.API_TOKEN, settings.TIMEZONE)
 
 
-@argh.arg('workspace-id', help='workspace id')
+@argh.arg('workspace-id', help='workspace id', nargs='?', default=None)
 def weekly(workspace_id):
+    workspace_id = default_workspace_id(workspace_id)
     data = api.get_weekly(workspace_id)
     #pprint.pprint(data)
 
@@ -24,8 +25,9 @@ def weekly(workspace_id):
         print u"total:", ms_to_hr(d['totals'][-1])
 
 
-@argh.arg('workspace-id', help='workspace id')
+@argh.arg('workspace-id', help='workspace id', nargs='?', default=None)
 def details(workspace_id):
+    workspace_id = default_workspace_id(workspace_id)
     data = api.get_details(workspace_id)
     #pprint.pprint(data)
 
@@ -43,8 +45,9 @@ def details(workspace_id):
         print u"- {} ({})".format(d['description'], ms_to_hr(d['dur']))
 
 
-@argh.arg('workspace-id', help='workspace id')
+@argh.arg('workspace-id', help='workspace id', nargs='?', default=None)
 def summary(workspace_id):
+    workspace_id = default_workspace_id(workspace_id)
     data = api.get_summary(workspace_id)
     #pprint.pprint(data)
 

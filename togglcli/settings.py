@@ -9,6 +9,9 @@ from dateutil.rrule import SA, SU, MO, TU, WE, TH, FR
 # Toggl API Token
 API_TOKEN = None
 
+# Default workspace ID, where appropriate
+WORKSPACE_ID = None
+
 # Number Precision
 PRECISION = 2
 
@@ -25,6 +28,11 @@ TIMEZONE = '+02:00'
 SHOW_SALARY = False
 SALARY = 0
 
+##
+## If you copy this package into either of the two places mentioned
+## below, as a shortcut to making a local settings file,
+## you need to REMOVE EVERYTHING BELOW THIS LINE to avoid infinite recursion.
+##
 
 ## load settings from etc and home directory
 

@@ -55,16 +55,22 @@ optional arguments:
   -h, --help            show this help message and exit
 ```
 
-All commands require the workspace id as argument. Get it by finding the
-"workspace_id" parameter in the toggl.com url, when looking at the workspace
+All commands accept a workspace id as argument. Get it by finding the
+"workspace_id" parameter in the `toggl.com` url, when looking at the workspace
 you want.
+
+If you omit the workspace ID, or use the word "default", `report.py` will use a
+`WORKSPACE_ID` value defined in `settings.py`, or fall back to using the first
+(often the only) workspace in your toggl account. So in many simple cases, you
+can just omit the workspace ID from the command line and the right thing will
+happen.
 
 ```
 $ report.py weekly --help
-usage: report.py weekly [-h] workspace-id
+usage: report.py weekly [-h] [workspace-id]
 
 positional arguments:
-  workspace-id  workspace id
+  workspace-id  workspace id (default: None)
 
 optional arguments:
   -h, --help    show this help message and exit
