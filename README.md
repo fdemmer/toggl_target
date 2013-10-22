@@ -17,11 +17,14 @@ Python 2.7
 * clone the source from this repository and `cd` to the source directory
 * run `pip install .` to install in your current environment (using the `-e`
   switch you can install using the source where it is cloned)
-* create a configuration file: `~/.togglcli/settings.py`
+* create a new/empty configuration file: `~/.togglcli/settings.py`
 * get your Toggl API token from your Toggl account's settings and set
   `API_TOKEN = "<the token>"` in `settings.py`
 * you may override additional default settings in `settings.py` (find the
   defaults in `togglcli/settings.py` in the source package)
+
+    Do NOT copy `togglcli/settings.py` to `~/.togglcli/settings.py`,
+    just create a new file there and override the default settings if necessary!
 
 
 Installation on Windows
