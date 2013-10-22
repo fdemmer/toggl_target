@@ -28,6 +28,7 @@ TIMEZONE = '+02:00'
 SHOW_SALARY = False
 SALARY = 0
 
+
 ## load settings from etc and home directory
 
 SETTINGS_PATH = ["/etc/togglcli/", os.path.expanduser("~/.togglcli/"), ]
